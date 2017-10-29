@@ -11,6 +11,14 @@ public class Programa implements Serializable {
     private String codigo;
     private List<Curso> cursos;
 
+    public Programa(long id) {
+  this.id = id;
+    }
+
+    public Programa() {
+    }
+    
+
     public Long getId() {
         return id;
     }
