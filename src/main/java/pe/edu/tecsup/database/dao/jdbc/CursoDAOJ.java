@@ -9,9 +9,9 @@ import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Repository;
 import pe.edu.tecsup.database.dao.CursoDAO;
 import pe.edu.tecsup.database.helper.mappers.CursoRowMapper;
-import pe.edu.tecsup.database.helper.mappers.ProgramaRowMapper;
+
 import pe.edu.tecsup.database.model.Curso;
-import pe.edu.tecsup.database.model.Programa;
+
 
 @Repository
 public class CursoDAOJ extends JdbcDaoSupport implements CursoDAO {
@@ -48,7 +48,7 @@ public class CursoDAOJ extends JdbcDaoSupport implements CursoDAO {
 
     @Override
     public void save(Curso t) {
-        String sql = "insert into curso(nombre,codigo)values(?,?)";
+        String sql = "insert into curso(nombre,codigo,fecha_inicio,id_programa)values(?,?,?,?)";
 
         try {
             this.getJdbcTemplate().update(
@@ -56,6 +56,9 @@ public class CursoDAOJ extends JdbcDaoSupport implements CursoDAO {
                     new Object[]{
                         t.getNombre(),
                         t.getCodigo(),
+                        t.getFechaInicio(),
+                        t.getPrograma()
+                        
                     }
             );
 

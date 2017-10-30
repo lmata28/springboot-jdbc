@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import pe.edu.tecsup.database.dao.ProgramaDAO;
 import pe.edu.tecsup.database.model.Programa;
 
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ProgramaDAOTests {
@@ -17,7 +18,7 @@ public class ProgramaDAOTests {
     @Autowired
     ProgramaDAO programaDAO;
 
-    @Test
+   //@Test
     public void verifyList() {
 
         List<Programa> programas = programaDAO.list();
@@ -28,41 +29,42 @@ public class ProgramaDAOTests {
         Assert.assertTrue(programas.size() > 0);
     }
 
-/*
-    @Test
+
+   // @Test
     public void verifyFind() {
         
-        Programa programa = programaDAO.get(1);
+        Programa programa = programaDAO.get(2l);
         System.out.println(programa.getNombre());
-        Assert.assertTrue(programa.getId() == 1);
+        Assert.assertTrue(programa.getId() == 2l);
         
     }
-*/
-/*    
-    @Test
+
+
+    //@Test
     public void verifySave() {
 
         Programa programa = new Programa();
-        programa.setCodigo("1020");
-        programa.setNombre("Nuevo Programa lidero");
-        programa.setDescripcion("......");
+        programa.setCodigo("002");
+        programa.setNombre("Cocina con Gaston");
+        programa.setDescripcion("Ratuil");
 
         programaDAO.save(programa);
         Assert.assertTrue(programa.getId() != null);
     }
-*/
+
     
-    @Test
+    //@Test
     public void verifyUpdate() {
 
         // cambiar el código para validar
         Programa programa = new Programa();
-        programa.setId(16l);
-        programa.setCodigo("28");
-        programa.setNombre("Programa Lidero.com....");
+        programa.setId(1l);
+        programa.setCodigo("003");
+        programa.setNombre("Programa Spring Tecsup");
+        programa.setDescripcion("Programa Spring Tecsup");
 
         programaDAO.update(programa);
-        Assert.assertTrue(programaDAO.get(16l).getCodigo().equals("28"));
+        Assert.assertTrue(programaDAO.get(1l).getCodigo().equals("003"));
     }
 
   
